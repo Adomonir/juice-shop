@@ -69,8 +69,6 @@ jobs:
 
     - uses: Azure/cli@v1.0.0
       with:
-    - uses: Azure/cli@v1.0.0
-      with:
         inlineScript: |
           az webapp config appsettings set --resource-group ${{ secrets.PRODRESOURCEGROUP }} --name juiceshop-prod-devsecops-${{ secrets.LABINSTANCEID }} --settings SQL_DB_URL="@Microsoft.KeyVault(SecretUri=https://kvdevsecops50145730.vault.azure.net/secrets/SQL-DB-URL)" 2FASecret="@Microsoft.KeyVault(SecretUri=https://kvdevsecops50145730.vault.azure.net/secrets/2FASecret)"
           az webapp restart --resource-group ${{ secrets.PRODRESOURCEGROUP }} --name juiceshop-prod-devsecops-${{ secrets.LABINSTANCEID }}
